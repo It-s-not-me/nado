@@ -1,44 +1,59 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Добавить документ</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="detail-card">
-            <a href="{% url 'document_list' %}" class="back-link">← Назад к списку</a>
+from django import forms
+from django.contrib.auth.models import User
 
-            <h1 class="detail-title">Добавить документ</h1>
+from .models import Document, ServiceType
 
-            <form method="post" enctype="multipart/form-data" class="document-form">
-                {% csrf_token %}
 
-                <div class="form-group">
-                    {{ form.title.label_tag }}
-                    {{ form.title }}
-                </div>
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ['file']
+        labels = {
+            'file': 'Файл',
+        }
 
-                <div class="form-group">
-                    {{ form.description.label_tag }}
-                    {{ form.description }}
-                </div>
 
-                <div class="form-group">
-                    {{ form.file.label_tag }}
-                    {{ form.file }}
-                </div>
+class StaffClientCaseForm(forms.Form):
+    inn = forms.CharField(
+        label='ИНН клиента',
+        max_length=12,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Введите ИНН клиента'
+        })
+    )
 
-                <div class="form-group">
-                    {{ form.status.label_tag }}
-                    {{ form.status }}
-                </div>
+    full_name = forms.CharField(
+        label='ФИО клиента',
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Введите ФИО клиента'
+        })
+    )
 
-                <button type="submit" class="save-button">Сохранить документ</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+    username = forms.CharField(
+        label='Логин для клиента',
+        max_length=150,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Например: client_ivanov'
+        })
+    )
+
+    password = forms.CharField(
+        label='Пароль для клиента',
+        widget=forms.PasswordInput(attrs={
+            'placeholder': 'Введите пароль'
+        })
+    )
+
+    service_type = forms.ModelChoiceField(
+        label='Тип услуги',
+        queryset=ServiceType.objects.all()
+    )
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError('Пользователь с таким логином уже существует.')
+
+        return username

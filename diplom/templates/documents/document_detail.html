@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{{ document.title }}</title>
+    <title>{{ document.required_document.document_type.name }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -11,27 +11,69 @@
         <div class="detail-card">
             <a href="{% url 'document_list' %}" class="back-link">← Назад к списку</a>
 
-            <h1 class="detail-title">{{ document.title }}</h1>
+            <h1 class="detail-title">
+                {{ document.required_document.document_type.name }}
+            </h1>
 
             <div class="detail-row">
-                <span class="detail-label">Описание:</span>
-                <p class="detail-text">{{ document.description|default:"Описание отсутствует" }}</p>
+                <span class="detail-label">Клиент:</span>
+                <p class="detail-text">
+                    {{ document.required_document.client_case.client.full_name }}
+                </p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">ИНН:</span>
+                <p class="detail-text">
+                    {{ document.required_document.client_case.client.inn }}
+                </p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Услуга:</span>
+                <p class="detail-text">
+                    {{ document.required_document.client_case.service_type.name }}
+                </p>
             </div>
 
             <div class="detail-row">
                 <span class="detail-label">Статус:</span>
-                <span class="status">Статус: {{ document.get_status_display }}</span>
+                <span class="status">
+                    {{ document.required_document.get_status_display }}
+                </span>
             </div>
 
             <div class="detail-row">
-                <span class="detail-label">Дата создания:</span>
-                <p class="detail-text">{{ document.created_at|date:"d.m.Y H:i" }}</p>
+                <span class="detail-label">Дата загрузки:</span>
+                <p class="detail-text">
+                    {{ document.uploaded_at|date:"d.m.Y H:i" }}
+                </p>
             </div>
 
             <div class="detail-row">
                 <span class="detail-label">Файл:</span>
-                <a href="{{ document.file.url }}" target="_blank" class="file-link">Открыть файл</a>
+
+                <p class="detail-text">
+                    {{ document.file.name|cut:"documents/" }}
+                </p>
+
+                <a href="{% url 'document_file' document.pk %}" target="_blank" class="file-link">
+                    Открыть
+                </a>
+
+                <a href="{% url 'document_file' document.pk %}?download=1"
+                   class="file-link"
+                   style="margin-left: 12px;">
+                    Скачать
+                </a>
             </div>
+
+            {% if document.extracted_text %}
+                <div class="detail-row">
+                    <span class="detail-label">Распознанный текст:</span>
+                    <p class="detail-text">{{ document.extracted_text }}</p>
+                </div>
+            {% endif %}
         </div>
     </div>
 </body>

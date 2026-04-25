@@ -39,6 +39,7 @@ body {
     font-size: 14px;
     font-weight: 600;
     transition: 0.2s;
+    
 }
 
 .add-button:hover {
@@ -253,4 +254,60 @@ body {
 
 .save-button:hover {
     background-color: #1d4ed8;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 18px;
+    padding: 34px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+.login-title {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    text-align: center;
+}
+
+.login-subtitle {
+    margin: 0 0 26px 0;
+    text-align: center;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.login-error {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background-color: #fee2e2;
+    color: #991b1b;
+    font-size: 14px;
+    font-weight: 600;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }

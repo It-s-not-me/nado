@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель сотрудника</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Панель сотрудника</h1>
+
+            <div class="header-actions">
+                <a href="{% url 'staff_client_case_create' %}" class="add-button">
+                    Создать клиента
+                </a>
+
+                <a href="{% url 'document_list' %}" class="add-button">
+                    Чек-листы
+                </a>
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="filter-button">
+                        Выйти
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="filters">
+            <form method="get">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Поиск по ФИО, ИНН или услуге"
+                    value="{{ search_query|default:'' }}"
+                >
+                <button type="submit" class="filter-button">Найти</button>
+            </form>
+        </div>
+
+        <div class="documents-grid">
+            {% for case in cases %}
+                <div class="document-card">
+                    <h2 class="document-title">
+                        {{ case.client.full_name }}
+                    </h2>
+
+                    <p class="document-description">
+                        ИНН: {{ case.client.inn }}
+                    </p>
+
+                    <p class="document-description">
+                        Услуга: {{ case.service_type.name }}
+                    </p>
+
+                    <p class="document-meta">
+                        Дата создания: {{ case.created_at|date:"d.m.Y H:i" }}
+                    </p>
+
+                    <p class="document-description">
+                        Документы: {{ case.completed_documents }} из {{ case.total_documents }}
+                    </p>
+
+                    <p class="document-description">
+                        Ожидается: {{ case.waiting_documents }}
+                    </p>
+
+                    {% if case.is_complete %}
+                        <span class="status">Комплект собран</span>
+                    {% else %}
+                        <span class="status">В работе</span>
+                    {% endif %}
+
+                    <br><br>
+
+                    <a href="{% url 'document_list' %}?q={{ case.client.full_name }}" class="open-button">
+                        Открыть чек-лист
+                    </a>
+                </div>
+            {% empty %}
+                <div class="empty-box">
+                    Дела клиентов не найдены
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать клиента и дело</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="detail-card">
+            <a href="{% url 'staff_dashboard' %}" class="back-link">
+                ← Назад в панель сотрудника
+            </a>
+
+            <h1 class="detail-title">Создать клиента и дело</h1>
+
+            <form method="post" class="document-form">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    <div class="login-error">
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    {{ form.inn.label_tag }}
+                    {{ form.inn }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.full_name.label_tag }}
+                    {{ form.full_name }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.service_type.label_tag }}
+                    {{ form.service_type }}
+                </div>
+
+                <button type="submit" class="save-button">
+                    Создать клиента и чек-лист
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

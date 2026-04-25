@@ -3,60 +3,130 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Документы</title>
+    <title>Чек-лист документов</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div class="container">
         <div class="page-header">
-            <h1 class="page-title">Список документов</h1>
-            <a href="{% url 'document_create' %}" class="add-button">Добавить документ</a>
+            <h1 class="page-title">Чек-лист документов</h1>
+
+            <div class="header-actions">
+                <span>Пользователь: {{ request.user.username }}</span>
+
+                {% if request.user.is_staff %}
+                    <a href="{% url 'staff_dashboard' %}" class="add-button">
+                        Панель сотрудника
+                    </a>
+                {% endif %}
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="filter-button">
+                        Выйти
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <div class="filters">
-            <form method="get">
-                <input
-                    type="text"
-                    name="q"
-                    placeholder="Поиск по названию"
-                    value="{{ search_query|default:'' }}"
-                >
-
-                <select name="status">
-                    <option value="">Все статусы</option>
-                    {% for value, label in status_choices %}
-                        <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>
-                            {{ label }}
-                        </option>
-                    {% endfor %}
-                </select>
-
-                <button type="submit" class="filter-button">Применить</button>
-            </form>
-        </div>
+        {% if request.user.is_staff %}
+            <div class="filters">
+                <form method="get">
+                    <input
+                        type="text"
+                        name="q"
+                        placeholder="Поиск по ФИО, ИНН, услуге или документу"
+                        value="{{ search_query|default:'' }}"
+                    >
+                    <button type="submit" class="filter-button">Найти</button>
+                </form>
+            </div>
+        {% endif %}
 
         <div class="documents-grid">
-            {% for document in documents %}
+            {% for item in required_documents %}
                 <div class="document-card">
-                    <h2 class="document-title">{{ document.title }}</h2>
+                    <h2 class="document-title">
+                        {{ item.document_type.name }}
+                    </h2>
 
                     <p class="document-description">
-                        {{ document.description|default:"Описание отсутствует" }}
+                        Клиент: {{ item.client_case.client.full_name }}
                     </p>
 
-                    <div class="document-meta">
-                        Дата создания: {{ document.created_at|date:"d.m.Y H:i" }}
-                    </div>
+                    <p class="document-description">
+                        ИНН: {{ item.client_case.client.inn }}
+                    </p>
+
+                    <p class="document-description">
+                        Услуга: {{ item.client_case.service_type.name }}
+                    </p>
 
                     <div class="status">
-                        Статус: {{ document.get_status_display }}
+                        {{ item.get_status_display }}
                     </div>
+
+                    {% if item.comment %}
+                        <p class="document-description">
+                            Комментарий: {{ item.comment }}
+                        </p>
+                    {% endif %}
 
                     <br>
 
-                    <a href="{% url 'document_detail' document.pk %}" class="open-button">
-                        Открыть
-                    </a>
+                    {% if item.status == 'uploaded' and item.files.first %}
+                        <a href="{% url 'document_detail' item.files.first.pk %}" class="open-button">
+                            Открыть
+                        </a>
+
+                    {% elif item.status == 'waiting' or item.status == 'rejected' %}
+                        <a href="{% url 'document_create' %}?required_document={{ item.pk }}" class="add-button">
+                            Загрузить
+                        </a>
+
+                    {% elif item.status == 'brought_personally' %}
+                        <span class="document-meta">Файл не загружается, документ получен сотрудником.</span>
+
+                    {% elif item.status == 'not_required' %}
+                        <span class="document-meta">Файл не требуется для данного клиента.</span>
+
+                    {% else %}
+                        <span class="document-meta">—</span>
+                    {% endif %}
+
+                    {% if request.user.is_staff %}
+                        <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="brought_personally">
+                                <button type="submit" class="filter-button">Принесён лично</button>
+                            </form>
+
+                            <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="not_required">
+                                <button type="submit" class="filter-button">Не требуется</button>
+                            </form>
+
+                            <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="verified">
+                                <button type="submit" class="open-button">Проверен</button>
+                            </form>
+
+                            <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="rejected">
+                                <button type="submit" class="filter-button">Отклонён</button>
+                            </form>
+
+                            <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="waiting">
+                                <button type="submit" class="filter-button">Вернуть в ожидание</button>
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
             {% empty %}
                 <div class="empty-box">
