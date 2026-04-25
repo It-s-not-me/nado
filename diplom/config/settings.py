@@ -127,3 +127,14 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'diplom_db',
+        'USER': 'diplom_user',
+        'PASSWORD': 'diplom_password',
+        'HOST': '127.0.0.1',
+        'PORT': '5433',
+    }
+}
