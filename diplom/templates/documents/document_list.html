@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Документы</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Список документов</h1>
+            <a href="{% url 'document_create' %}" class="add-button">Добавить документ</a>
+        </div>
+
+        <div class="filters">
+            <form method="get">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Поиск по названию"
+                    value="{{ search_query|default:'' }}"
+                >
+
+                <select name="status">
+                    <option value="">Все статусы</option>
+                    {% for value, label in status_choices %}
+                        <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="filter-button">Применить</button>
+            </form>
+        </div>
+
+        <div class="documents-grid">
+            {% for document in documents %}
+                <div class="document-card">
+                    <h2 class="document-title">{{ document.title }}</h2>
+
+                    <p class="document-description">
+                        {{ document.description|default:"Описание отсутствует" }}
+                    </p>
+
+                    <div class="document-meta">
+                        Дата создания: {{ document.created_at|date:"d.m.Y H:i" }}
+                    </div>
+
+                    <div class="status">
+                        Статус: {{ document.get_status_display }}
+                    </div>
+
+                    <br>
+
+                    <a href="{% url 'document_detail' document.pk %}" class="open-button">
+                        Открыть
+                    </a>
+                </div>
+            {% empty %}
+                <div class="empty-box">
+                    Документы не найдены
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
