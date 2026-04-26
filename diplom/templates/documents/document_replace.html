@@ -3,30 +3,31 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Загрузить документ</title>
+    <title>Заменить файл</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
 </head>
 <body>
     <div class="container">
         <div class="detail-card">
-            <a href="{% url 'document_list' %}" class="back-link">← Назад к списку</a>
+            <a href="{% url 'document_detail' document.pk %}" class="back-link">
+                ← Назад к документу
+            </a>
 
-            <h1 class="detail-title">Загрузить документ</h1>
+            <h1 class="detail-title">Заменить файл</h1>
 
             <div class="detail-row">
                 <span class="detail-label">Тип документа:</span>
-                <p class="detail-text">{{ required_document.document_type.name }}</p>
+                <p class="detail-text">
+                    {{ document.required_document.document_type.name }}
+                </p>
             </div>
 
             <div class="detail-row">
-                <span class="detail-label">Клиент:</span>
-                <p class="detail-text">{{ required_document.client_case.client.full_name }}</p>
-            </div>
-
-            <div class="detail-row">
-                <span class="detail-label">Услуга:</span>
-                <p class="detail-text">{{ required_document.client_case.service_type.name }}</p>
+                <span class="detail-label">Текущий файл:</span>
+                <p class="detail-text">
+                    {{ document.file.name|cut:"documents/" }}
+                </p>
             </div>
 
             <form method="post" enctype="multipart/form-data" class="document-form">
@@ -44,7 +45,7 @@
                 </div>
 
                 <button type="submit" class="save-button">
-                    Загрузить документ
+                    Заменить файл
                 </button>
             </form>
         </div>

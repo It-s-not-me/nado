@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,10 +132,10 @@ TIME_ZONE = 'Europe/Moscow'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'diplom_db',
-        'USER': 'diplom_user',
-        'PASSWORD': 'diplom_password',
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+        'NAME': os.getenv('POSTGRES_DB', 'diplom_db'),
+        'USER': os.getenv('POSTGRES_USER', 'diplom_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'diplom_password'),
+        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        'PORT': os.getenv('POSTGRES_PORT', '5433'),
     }
 }

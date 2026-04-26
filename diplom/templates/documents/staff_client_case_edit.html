@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Создать клиента и дело</title>
+    <title>Редактировать дело</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
 </head>
@@ -14,7 +14,22 @@
                 ← Назад в панель сотрудника
             </a>
 
-            <h1 class="detail-title">Создать клиента и дело</h1>
+            <h1 class="detail-title">Редактировать дело</h1>
+
+            <div class="detail-row">
+                <span class="detail-label">Клиент:</span>
+                <p class="detail-text">{{ client_case.client.full_name }}</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">ИНН:</span>
+                <p class="detail-text">{{ client_case.client.inn }}</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Услуга:</span>
+                <p class="detail-text">{{ client_case.service_type.name }}</p>
+            </div>
 
             <form method="post" class="document-form">
                 {% csrf_token %}
@@ -24,35 +39,6 @@
                         {{ form.errors }}
                     </div>
                 {% endif %}
-
-                <h2 class="document-title">Данные клиента</h2>
-
-                <div class="form-group">
-                    {{ form.inn.label_tag }}
-                    {{ form.inn }}
-                </div>
-
-                <div class="form-group">
-                    {{ form.full_name.label_tag }}
-                    {{ form.full_name }}
-                </div>
-
-                <div class="form-group">
-                    {{ form.username.label_tag }}
-                    {{ form.username }}
-                </div>
-
-                <div class="form-group">
-                    {{ form.password.label_tag }}
-                    {{ form.password }}
-                </div>
-
-                <div class="form-group">
-                    {{ form.service_type.label_tag }}
-                    {{ form.service_type }}
-                </div>
-
-                <h2 class="document-title">Данные для формирования документов</h2>
 
                 <div class="form-group">
                     {{ form.organization_name.label_tag }}
@@ -79,8 +65,13 @@
                     {{ form.authorized_capital }}
                 </div>
 
+                <div class="form-group">
+                    {{ form.is_complete.label_tag }}
+                    {{ form.is_complete }}
+                </div>
+
                 <button type="submit" class="save-button">
-                    Создать клиента и чек-лист
+                    Сохранить изменения
                 </button>
             </form>
         </div>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>{{ document.required_document.document_type.name }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
 </head>
 <body>
     <div class="container">
@@ -66,6 +67,22 @@
                    style="margin-left: 12px;">
                     Скачать
                 </a>
+
+                <a href="{% url 'document_replace' document.pk %}"
+                   class="file-link"
+                   style="margin-left: 12px;">
+                    Заменить файл
+                </a>
+
+                <form method="post"
+                      action="{% url 'document_delete' document.pk %}"
+                      style="display:inline; margin-left: 12px;"
+                      onsubmit="return confirm('Удалить файл? Это действие нельзя отменить.');">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-button">
+                        Удалить файл
+                    </button>
+                </form>
             </div>
 
             {% if document.extracted_text %}

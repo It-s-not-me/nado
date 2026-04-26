@@ -311,3 +311,28 @@ body {
     gap: 12px;
     flex-wrap: wrap;
 }
+.delete-button {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #b91c1c;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.logout-form {
+    margin: 0;
+    display: inline-flex;
+}

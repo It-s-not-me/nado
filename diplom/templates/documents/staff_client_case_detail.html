@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Дело клиента</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Дело клиента</h1>
+
+            <div class="header-actions">
+                <a href="{% url 'staff_dashboard' %}" class="add-button">
+                    Панель сотрудника
+                </a>
+
+                <a href="{% url 'staff_client_case_edit' client_case.pk %}" class="add-button">
+                    Редактировать дело
+                </a>
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="filter-button">
+                        Выйти
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="detail-card">
+            <h2 class="detail-title">{{ client_case.client.full_name }}</h2>
+
+            <div class="detail-row">
+                <span class="detail-label">ИНН:</span>
+                <p class="detail-text">{{ client_case.client.inn }}</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Услуга:</span>
+                <p class="detail-text">{{ client_case.service_type.name }}</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Дата создания:</span>
+                <p class="detail-text">{{ client_case.created_at|date:"d.m.Y H:i" }}</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Статистика:</span>
+                <p class="detail-text">
+                    Документы: {{ completed_documents }} из {{ total_documents }},
+                    ожидается: {{ waiting_documents }}
+                </p>
+            </div>
+
+            {% if client_case.organization_name or client_case.short_organization_name or client_case.legal_address or client_case.director_full_name or client_case.authorized_capital %}
+                <hr>
+
+                <h2 class="document-title">Данные для формирования документов</h2>
+
+                <div class="detail-row">
+                    <span class="detail-label">Полное название:</span>
+                    <p class="detail-text">{{ client_case.organization_name|default:"Не указано" }}</p>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Сокращённое название:</span>
+                    <p class="detail-text">{{ client_case.short_organization_name|default:"Не указано" }}</p>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Юридический адрес:</span>
+                    <p class="detail-text">{{ client_case.legal_address|default:"Не указано" }}</p>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Руководитель:</span>
+                    <p class="detail-text">{{ client_case.director_full_name|default:"Не указано" }}</p>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Уставный капитал:</span>
+                    <p class="detail-text">{{ client_case.authorized_capital|default:"Не указано" }}</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <br>
+
+        <h2 class="document-title">Чек-лист документов</h2>
+
+        <div class="documents-grid">
+            {% for item in required_documents %}
+                <div class="document-card">
+                    <h2 class="document-title">
+                        {{ item.document_type.name }}
+                    </h2>
+
+                    <div class="status">
+                        {{ item.get_status_display }}
+                    </div>
+
+                    {% if item.comment %}
+                        <p class="document-description">
+                            Комментарий: {{ item.comment }}
+                        </p>
+                    {% endif %}
+
+                    <br>
+
+                    {% if item.status == 'uploaded' and item.files.first %}
+                        <a href="{% url 'document_detail' item.files.first.pk %}" class="open-button">
+                            Открыть
+                        </a>
+
+                    {% elif item.status == 'waiting' or item.status == 'rejected' %}
+                        {% if item.document_type.name == 'Устав' %}
+                            <a href="{% url 'generate_charter' item.pk %}" class="add-button">
+                                Сгенерировать устав
+                            </a>
+                        {% else %}
+                            <a href="{% url 'document_create' %}?required_document={{ item.pk }}" class="add-button">
+                                Загрузить
+                            </a>
+                        {% endif %}
+
+                    {% elif item.status == 'brought_personally' %}
+                        <span class="document-meta">Файл не загружается, документ получен сотрудником.</span>
+
+                    {% elif item.status == 'not_required' %}
+                        <span class="document-meta">Файл не требуется для данного клиента.</span>
+
+                    {% else %}
+                        <span class="document-meta">—</span>
+                    {% endif %}
+
+                    <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="brought_personally">
+                            <button type="submit" class="filter-button">Принесён лично</button>
+                        </form>
+
+                        <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="not_required">
+                            <button type="submit" class="filter-button">Не требуется</button>
+                        </form>
+
+                        <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="verified">
+                            <button type="submit" class="open-button">Проверен</button>
+                        </form>
+
+                        <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="rejected">
+                            <button type="submit" class="filter-button">Отклонён</button>
+                        </form>
+
+                        <form method="post" action="{% url 'required_document_status_update' item.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="status" value="waiting">
+                            <button type="submit" class="filter-button">Вернуть в ожидание</button>
+                        </form>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="empty-box">
+                    Документы не найдены
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

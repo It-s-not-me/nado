@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Панель сотрудника</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
 </head>
 <body>
     <div class="container">
@@ -20,8 +21,13 @@
                     Чек-листы
                 </a>
 
+                <a href="{% url 'feedback_create' %}" class="add-button">
+                        Сообщить о проблеме
+                    </a>
+
                 <form method="post" action="{% url 'logout' %}" style="display:inline;">
                     {% csrf_token %}
+                    
                     <button type="submit" class="filter-button">
                         Выйти
                     </button>
@@ -76,9 +82,15 @@
 
                     <br><br>
 
-                    <a href="{% url 'document_list' %}?q={{ case.client.full_name }}" class="open-button">
-                        Открыть чек-лист
-                    </a>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <a href="{% url 'staff_client_case_detail' case.pk %}" class="open-button">
+                            Открыть дело
+                        </a>
+
+                        <a href="{% url 'staff_client_case_edit' case.pk %}" class="add-button">
+                            Редактировать дело
+                        </a>
+                    </div>
                 </div>
             {% empty %}
                 <div class="empty-box">

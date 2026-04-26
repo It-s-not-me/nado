@@ -6,6 +6,7 @@ from .models import (
     ClientCase,
     RequiredDocument,
     Document,
+    Feedback,
 )
 
 
@@ -64,3 +65,9 @@ class DocumentAdmin(admin.ModelAdmin):
         'extracted_inn',
         'extracted_document_number',
     )
+
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'user', 'status', 'created_at')
+    list_filter = ('status', 'created_at')
+    search_fields = ('title', 'message', 'user__username')

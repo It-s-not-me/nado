@@ -33,6 +33,42 @@ class Client(models.Model):
 class ClientCase(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     service_type = models.ForeignKey(ServiceType, on_delete=models.PROTECT)
+
+    organization_name = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name='Название организации'
+    )
+
+    short_organization_name = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name='Сокращённое название организации'
+    )
+
+    legal_address = models.CharField(
+        max_length=500,
+        blank=True,
+        null=True,
+        verbose_name='Юридический адрес'
+    )
+
+    director_full_name = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name='ФИО руководителя'
+    )
+
+    authorized_capital = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name='Уставный капитал'
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     is_complete = models.BooleanField(default=False)
 
@@ -96,3 +132,43 @@ def create_required_documents(sender, instance, created, **kwargs):
                 client_case=instance,
                 document_type=doc_type
             )
+
+
+class Feedback(models.Model):
+    STATUS_CHOICES = [
+        ('new', 'Новая'),
+        ('in_progress', 'В работе'),
+        ('closed', 'Закрыта'),
+    ]
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name='Пользователь'
+    )
+
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Тема'
+    )
+
+    message = models.TextField(
+        verbose_name='Описание проблемы'
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='new',
+        verbose_name='Статус'
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Дата создания'
+    )
+
+    def __str__(self):
+        return f"{self.title} — {self.get_status_display()}"
