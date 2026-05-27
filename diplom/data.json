@@ -1,0 +1,1106 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-04-25T22:54:54.680Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Ildar_admin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-04-25T22:54:59.491Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Ildar_admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-04-25T22:55:59.118Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Паспорт учредителя",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-04-25T22:56:10.587Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "ИНН учредителя",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-04-25T22:56:15.096Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "СНИЛС учредителя",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-04-25T22:56:21.416Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Контактные данные",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-04-25T22:56:35.125Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Юридический адрес",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-04-25T22:56:39.792Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Устав",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-04-25T22:56:44.065Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "Решение о создании",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-04-25T22:56:48.537Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "Протокол о создании",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-04-25T22:56:52.489Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "Заявление Р11001",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-04-25T22:56:57.109Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "10",
+    "object_repr": "Сведения о руководителе",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-04-25T22:57:01.392Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "11",
+    "object_repr": "Решение о выпуске акций",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-04-25T22:57:07.705Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "12",
+    "object_repr": "Договор с регистратором",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-04-25T22:57:12.488Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "13",
+    "object_repr": "Уставной капитал",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-04-25T22:57:52.657Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "ОНО",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-04-25T22:58:30.027Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "АО",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-04-25T22:59:04.056Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "НКО",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-04-25T23:34:35.626Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Устав — Харисов Ильдар Муратович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-04-25T23:34:35.626Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Устав — Харисов Ильдар Муратович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-04-25T23:34:35.626Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Устав — ХХХ",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-05-09T16:53:50.924Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "test1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-05-09T16:53:50.925Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "ХХХ",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-05-10T17:31:22.579Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "KIM",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-05-10T17:31:22.579Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "test1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-05-10T17:43:04.166Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "тест — Новая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-05-10T17:43:04.166Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "тест — Новая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$oi6YqoyEveOOaBt2pMZTgD$8CFVrBjn1LAvuv1dIaHvLKjhiH3cyxAEWsORxR5pQIg=",
+    "last_login": "2026-05-25T10:33:57.380Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-25T22:54:01.392Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$EcAyJdS3fXJg3qfBPwISNh$lfZM2RO9/3cpqyFPUbvEmHqcs7Dl2OR3NbdqCFjDIm4=",
+    "last_login": "2026-05-10T17:48:14.473Z",
+    "is_superuser": false,
+    "username": "Ildar_admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-25T22:54:53Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$I9sheG96OuecdJrHu9p5zh$wnh7qhQ7NlIMySzGgvXveeXhq/Ymu+V3ODMALLrsAcw=",
+    "last_login": "2026-05-10T17:46:24.046Z",
+    "is_superuser": false,
+    "username": "ildar",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-25T22:59:28.496Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$CQ3iQo4NxvrenfdXpFreg6$o1Oq47yDs215lRYq+zBnNO57igqmymmi1V2YgZwKsN8=",
+    "last_login": "2026-05-03T21:31:40.875Z",
+    "is_superuser": true,
+    "username": "admin_dock",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-25T23:14:42.674Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$mMggYdRTTT7WGxs0zNBPfa$r3jrifKa0ckveWML52Lz3+YALb+OSSox5kUwcHOuVYc=",
+    "last_login": "2026-04-26T00:05:48.053Z",
+    "is_superuser": false,
+    "username": "Marat",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-25T23:39:38.209Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$cgsqeGnHcGNKlVijDtYulr$9sUuvOe2/VsahNfCDxIpfHgf+zRROSq11TdiDRE0iFs=",
+    "last_login": "2026-05-10T17:34:01.700Z",
+    "is_superuser": false,
+    "username": "test1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-10T17:31:55.533Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1vht895fnftqox0bs6oin21sf7l33wph",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQRf-la9MULNPWpXu-oZnOQ1ADCYWV8d-VhIVu7znnvkzGbR3yVmXJI5uLaczpdytID5l2wHecbrOleVqXsdhdsQettp9ZntfD_TsYsA7fOnBwKTgqQc-qjhBaIfDifEQE30XQjtUxcBINoIlCASwamySEbTLvD_vgOOI:1wRSdB:zA1O0xyGOM9UXHwGPCcEo_l6rdgm3Y919E8wFjAKFvU",
+    "expire_date": "2026-06-08T10:33:57.386Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3c5un36125cgmhpsi2cpu1rkwnoiwrrd",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pACg4BL956BDMNUqgaS0q6Md7dNutDte-__t4i4LiWunec4ZXERWpx-WUJ6ct1FfmC9N0mtLvOU5J7Iw3Z5a5lf16P9OyjYy7b2AwRyZ0AVPGq04ACQNCUaKYAlM_KwMUXKGu2tR8ccjHZgjFGBnfh8AcrhNu0:1wM8GE:JDc6GbiEq2pZcI935DBvZoRWTf63xtGrndU6zVUQyxQ",
+    "expire_date": "2026-05-24T17:48:14.476Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3vrwkm772rw8lbu31odgccx0dt044afg",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQRf-la9MULNPWpXu-oZnOQ1ADCYWV8d-VhIVu7znnvkzGbR3yVmXJI5uLaczpdytID5l2wHecbrOleVqXsdhdsQettp9ZntfD_TsYsA7fOnBwKTgqQc-qjhBaIfDifEQE30XQjtUxcBINoIlCASwamySEbTLvD_vgOOI:1wGu9B:pM1CVUNXLH2QHyBepqydeu7OIad8EgEt6d5H67BDfJM",
+    "expire_date": "2026-05-10T07:43:21.298Z"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 1,
+  "fields": {
+    "name": "Паспорт учредителя"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 2,
+  "fields": {
+    "name": "ИНН учредителя"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 3,
+  "fields": {
+    "name": "СНИЛС учредителя"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 4,
+  "fields": {
+    "name": "Контактные данные"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 5,
+  "fields": {
+    "name": "Юридический адрес"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 6,
+  "fields": {
+    "name": "Устав"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 7,
+  "fields": {
+    "name": "Решение о создании"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 8,
+  "fields": {
+    "name": "Протокол о создании"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 9,
+  "fields": {
+    "name": "Заявление Р11001"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 10,
+  "fields": {
+    "name": "Сведения о руководителе"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 11,
+  "fields": {
+    "name": "Решение о выпуске акций"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 12,
+  "fields": {
+    "name": "Договор с регистратором"
+  }
+},
+{
+  "model": "documents.documenttype",
+  "pk": 13,
+  "fields": {
+    "name": "Уставной капитал"
+  }
+},
+{
+  "model": "documents.servicetype",
+  "pk": 1,
+  "fields": {
+    "name": "ОНО",
+    "required_documents": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "documents.servicetype",
+  "pk": 2,
+  "fields": {
+    "name": "АО",
+    "required_documents": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  }
+},
+{
+  "model": "documents.servicetype",
+  "pk": 3,
+  "fields": {
+    "name": "НКО",
+    "required_documents": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "documents.client",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "full_name": "Харисов Ильдар Муратович",
+    "inn": "020105715680"
+  }
+},
+{
+  "model": "documents.client",
+  "pk": 3,
+  "fields": {
+    "user": 6,
+    "full_name": "Сабитов Марат Ахатович",
+    "inn": "777777777777"
+  }
+},
+{
+  "model": "documents.client",
+  "pk": 5,
+  "fields": {
+    "user": 8,
+    "full_name": "test",
+    "inn": "111111111111"
+  }
+},
+{
+  "model": "documents.clientcase",
+  "pk": 1,
+  "fields": {
+    "client": 1,
+    "service_type": 2,
+    "organization_name": null,
+    "short_organization_name": null,
+    "legal_address": null,
+    "director_full_name": null,
+    "authorized_capital": null,
+    "created_at": "2026-04-25T22:59:29.238Z",
+    "is_complete": false
+  }
+},
+{
+  "model": "documents.clientcase",
+  "pk": 3,
+  "fields": {
+    "client": 3,
+    "service_type": 2,
+    "organization_name": "ооо капыта",
+    "short_organization_name": "кп",
+    "legal_address": "советская",
+    "director_full_name": "Ильдар Харисов",
+    "authorized_capital": "213",
+    "created_at": "2026-04-25T23:39:38.473Z",
+    "is_complete": false
+  }
+},
+{
+  "model": "documents.clientcase",
+  "pk": 5,
+  "fields": {
+    "client": 5,
+    "service_type": 1,
+    "organization_name": "",
+    "short_organization_name": "",
+    "legal_address": "",
+    "director_full_name": "",
+    "authorized_capital": "",
+    "created_at": "2026-05-10T17:31:55.792Z",
+    "is_complete": false
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 1,
+  "fields": {
+    "client_case": 1,
+    "document_type": 1,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 2,
+  "fields": {
+    "client_case": 1,
+    "document_type": 2,
+    "status": "rejected",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 3,
+  "fields": {
+    "client_case": 1,
+    "document_type": 3,
+    "status": "uploaded",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 4,
+  "fields": {
+    "client_case": 1,
+    "document_type": 4,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 5,
+  "fields": {
+    "client_case": 1,
+    "document_type": 5,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 6,
+  "fields": {
+    "client_case": 1,
+    "document_type": 6,
+    "status": "uploaded",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 7,
+  "fields": {
+    "client_case": 1,
+    "document_type": 7,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 8,
+  "fields": {
+    "client_case": 1,
+    "document_type": 8,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 9,
+  "fields": {
+    "client_case": 1,
+    "document_type": 9,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 10,
+  "fields": {
+    "client_case": 1,
+    "document_type": 10,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 11,
+  "fields": {
+    "client_case": 1,
+    "document_type": 11,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 12,
+  "fields": {
+    "client_case": 1,
+    "document_type": 12,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 13,
+  "fields": {
+    "client_case": 1,
+    "document_type": 13,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 23,
+  "fields": {
+    "client_case": 3,
+    "document_type": 1,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 24,
+  "fields": {
+    "client_case": 3,
+    "document_type": 2,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 25,
+  "fields": {
+    "client_case": 3,
+    "document_type": 3,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 26,
+  "fields": {
+    "client_case": 3,
+    "document_type": 4,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 27,
+  "fields": {
+    "client_case": 3,
+    "document_type": 5,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 28,
+  "fields": {
+    "client_case": 3,
+    "document_type": 6,
+    "status": "uploaded",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 29,
+  "fields": {
+    "client_case": 3,
+    "document_type": 7,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 30,
+  "fields": {
+    "client_case": 3,
+    "document_type": 8,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 31,
+  "fields": {
+    "client_case": 3,
+    "document_type": 9,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 32,
+  "fields": {
+    "client_case": 3,
+    "document_type": 10,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 33,
+  "fields": {
+    "client_case": 3,
+    "document_type": 11,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 34,
+  "fields": {
+    "client_case": 3,
+    "document_type": 12,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 35,
+  "fields": {
+    "client_case": 3,
+    "document_type": 13,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 45,
+  "fields": {
+    "client_case": 5,
+    "document_type": 1,
+    "status": "uploaded",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 46,
+  "fields": {
+    "client_case": 5,
+    "document_type": 2,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 47,
+  "fields": {
+    "client_case": 5,
+    "document_type": 3,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 48,
+  "fields": {
+    "client_case": 5,
+    "document_type": 4,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 49,
+  "fields": {
+    "client_case": 5,
+    "document_type": 5,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 50,
+  "fields": {
+    "client_case": 5,
+    "document_type": 6,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 51,
+  "fields": {
+    "client_case": 5,
+    "document_type": 8,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 52,
+  "fields": {
+    "client_case": 5,
+    "document_type": 9,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.requireddocument",
+  "pk": 53,
+  "fields": {
+    "client_case": 5,
+    "document_type": 10,
+    "status": "waiting",
+    "comment": null
+  }
+},
+{
+  "model": "documents.document",
+  "pk": 10,
+  "fields": {
+    "required_document": 3,
+    "file": "documents/Документ_1_cVpHhbs.docx",
+    "uploaded_at": "2026-04-26T07:41:24.626Z",
+    "extracted_text": null,
+    "extracted_full_name": null,
+    "extracted_inn": null,
+    "extracted_document_number": null
+  }
+},
+{
+  "model": "documents.document",
+  "pk": 11,
+  "fields": {
+    "required_document": 28,
+    "file": "documents/ustav_777777777777.docx",
+    "uploaded_at": "2026-04-26T07:44:54.461Z",
+    "extracted_text": null,
+    "extracted_full_name": null,
+    "extracted_inn": null,
+    "extracted_document_number": null
+  }
+},
+{
+  "model": "documents.document",
+  "pk": 13,
+  "fields": {
+    "required_document": 45,
+    "file": "documents/Харисов_Ильдар_Муратович.docx",
+    "uploaded_at": "2026-05-10T17:33:53.772Z",
+    "extracted_text": null,
+    "extracted_full_name": null,
+    "extracted_inn": null,
+    "extracted_document_number": null
+  }
+},
+{
+  "model": "documents.feedback",
+  "pk": 3,
+  "fields": {
+    "user": 8,
+    "title": "test1",
+    "message": "тестовое сообщение",
+    "status": "new",
+    "created_at": "2026-05-10T17:42:38.329Z"
+  }
+}
+]
