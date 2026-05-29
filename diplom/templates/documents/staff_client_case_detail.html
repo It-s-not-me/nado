@@ -94,7 +94,7 @@
 
         <div class="documents-grid">
             {% for item in required_documents %}
-                <div class="document-card">
+                <div class="document-card" id="doc-{{ item.pk }}">
                     <h2 class="document-title">
                         {{ item.document_type.name }}
                     </h2>
@@ -111,8 +111,8 @@
 
                     <br>
 
-                    {% if item.status == 'uploaded' and item.files.first %}
-                        <a href="{% url 'document_detail' item.files.first.pk %}" class="open-button">
+                    {% if item.files.first %}
+                        <a href="{% url 'document_detail' item.files.first.pk %}?next={{ request.get_full_path|urlencode }}%23doc-{{ item.pk }}" class="open-button">
                             Открыть
                         </a>
 
@@ -128,10 +128,14 @@
                         {% endif %}
 
                     {% elif item.status == 'brought_personally' %}
-                        <span class="document-meta">Файл не загружается, документ получен сотрудником.</span>
+                        <span class="document-meta">
+                            Файл не загружается, документ получен сотрудником.
+                        </span>
 
                     {% elif item.status == 'not_required' %}
-                        <span class="document-meta">Файл не требуется для данного клиента.</span>
+                        <span class="document-meta">
+                            Файл не требуется для данного клиента.
+                        </span>
 
                     {% else %}
                         <span class="document-meta">—</span>
@@ -141,31 +145,46 @@
                         <form method="post" action="{% url 'required_document_status_update' item.pk %}">
                             {% csrf_token %}
                             <input type="hidden" name="status" value="brought_personally">
-                            <button type="submit" class="filter-button">Принесён лично</button>
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}#doc-{{ item.pk }}">
+                            <button type="submit" class="filter-button">
+                                Принесён лично
+                            </button>
                         </form>
 
                         <form method="post" action="{% url 'required_document_status_update' item.pk %}">
                             {% csrf_token %}
                             <input type="hidden" name="status" value="not_required">
-                            <button type="submit" class="filter-button">Не требуется</button>
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}#doc-{{ item.pk }}">
+                            <button type="submit" class="filter-button">
+                                Не требуется
+                            </button>
                         </form>
 
                         <form method="post" action="{% url 'required_document_status_update' item.pk %}">
                             {% csrf_token %}
                             <input type="hidden" name="status" value="verified">
-                            <button type="submit" class="open-button">Проверен</button>
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}#doc-{{ item.pk }}">
+                            <button type="submit" class="open-button">
+                                Проверен
+                            </button>
                         </form>
 
                         <form method="post" action="{% url 'required_document_status_update' item.pk %}">
                             {% csrf_token %}
                             <input type="hidden" name="status" value="rejected">
-                            <button type="submit" class="filter-button">Отклонён</button>
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}#doc-{{ item.pk }}">
+                            <button type="submit" class="filter-button">
+                                Отклонён
+                            </button>
                         </form>
 
                         <form method="post" action="{% url 'required_document_status_update' item.pk %}">
                             {% csrf_token %}
                             <input type="hidden" name="status" value="waiting">
-                            <button type="submit" class="filter-button">Вернуть в ожидание</button>
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}#doc-{{ item.pk }}">
+                            <button type="submit" class="filter-button">
+                                Вернуть в ожидание
+                            </button>
                         </form>
                     </div>
                 </div>

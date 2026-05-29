@@ -10,7 +10,11 @@
 <body>
     <div class="container">
         <div class="detail-card">
-            <a href="{% url 'document_list' %}" class="back-link">← Назад к списку</a>
+            {% if next_url %}
+                <a href="{{ next_url }}" class="back-link">← Назад</a>
+            {% else %}
+                <a href="{% url 'document_list' %}" class="back-link">← Назад к списку</a>
+            {% endif %}
 
             <h1 class="detail-title">
                 {{ document.required_document.document_type.name }}

@@ -73,8 +73,11 @@ def document_detail(request, pk):
     if not request.user.is_staff and document.required_document.client_case.client.user != request.user:
         return redirect('document_list')
 
+    next_url = request.GET.get('next')
+
     return render(request, 'documents/document_detail.html', {
-        'document': document
+        'document': document,
+        'next_url': next_url,
     })
 
 
@@ -143,7 +146,12 @@ def required_document_status_update(request, pk):
         required_document.status = new_status
         required_document.save()
 
-    return redirect('document_list')
+    next_url = request.POST.get('next')
+
+    if next_url:
+        return redirect(next_url)
+
+    return redirect('staff_client_case_detail', pk=required_document.client_case.pk)
 
 
 @login_required
