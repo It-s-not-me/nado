@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Панель сотрудника</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/theme-toggle.js' %}" defer></script>
     <link rel="icon" href="{% static 'img/logo.svg' %}" type="image/svg+xml">
 </head>
 <body>
@@ -12,23 +13,28 @@
         <div class="page-header">
             <h1 class="page-title">Панель сотрудника</h1>
 
-            <div class="header-actions">
-                <a href="{% url 'staff_client_case_create' %}" class="add-button">
+            <div class="header-actions" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <a href="{% url 'staff_client_case_create' %}" class="add-button" style="padding: 14px 20px; font-size: 18px;">
                     Создать клиента
                 </a>
 
-                <a href="{% url 'document_list' %}" class="add-button">
+                <a href="{% url 'document_list' %}" class="add-button" style="padding: 14px 20px; font-size: 18px;">
                     Чек-листы
                 </a>
 
-                <a href="{% url 'feedback_create' %}" class="add-button">
-                        Сообщить о проблеме
-                    </a>
+                <a href="{% url 'feedback_create' %}" class="add-button" style="padding: 14px 20px; font-size: 18px;">
+                    Сообщить о проблеме
+                </a>
 
-                <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="add-button" style="padding: 14px 20px; font-size: 18px;">
+                        Админ-панель
+                    </a>
+                {% endif %}
+
+                <form method="post" action="{% url 'logout' %}" style="display:inline; margin: 0;">
                     {% csrf_token %}
-                    
-                    <button type="submit" class="filter-button">
+                    <button type="submit" class="filter-button" style="padding: 14px 20px; font-size: 18px;">
                         Выйти
                     </button>
                 </form>

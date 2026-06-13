@@ -328,11 +328,197 @@ body {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
 .logout-form {
     margin: 0;
     display: inline-flex;
+}
+
+.header-actions a,
+.header-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    box-sizing: border-box;
+}
+
+.header-actions .add-button,
+.header-actions .filter-button {
+    padding: 14px 22px;
+    font-size: 18px;
+}
+
+
+/* ============================= */
+/* Кнопка переключения темы */
+/* ============================= */
+
+.theme-toggle-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 999px;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.35);
+    transition: 0.2s;
+}
+
+.theme-toggle-button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* ============================= */
+/* Контрастная тема для проектора */
+/* ============================= */
+
+body.projector-theme {
+    background:
+        radial-gradient(circle at top left, #bfdbfe 0, transparent 32%),
+        linear-gradient(135deg, #dbeafe 0%, #e0e7ff 45%, #f8fafc 100%);
+    color: #0f172a;
+}
+
+body.projector-theme .page-header {
+    background: #ffffff;
+    border: 2px solid #64748b;
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.18);
+}
+
+body.projector-theme .page-title {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+body.projector-theme .filters,
+body.projector-theme .document-card,
+body.projector-theme .detail-card,
+body.projector-theme .empty-box,
+body.projector-theme .login-card {
+    background: #ffffff;
+    border: 2px solid #64748b;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.20);
+}
+
+body.projector-theme .document-card {
+    position: relative;
+    padding-left: 28px;
+}
+
+body.projector-theme .document-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 7px;
+    height: calc(100% - 28px);
+    background: #1d4ed8;
+    border-radius: 0 8px 8px 0;
+}
+
+body.projector-theme .document-title,
+body.projector-theme .detail-title,
+body.projector-theme .login-title {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+body.projector-theme .document-description,
+body.projector-theme .detail-text,
+body.projector-theme .login-subtitle {
+    color: #334155;
+}
+
+body.projector-theme .document-meta {
+    color: #475569;
+    font-weight: 600;
+}
+
+body.projector-theme .detail-row {
+    background: #f8fafc;
+    border-left: 5px solid #1d4ed8;
+    padding: 14px 16px;
+    border-radius: 12px;
+}
+
+body.projector-theme .detail-label,
+body.projector-theme .form-group label {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+body.projector-theme .status {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+    font-weight: 800;
+}
+
+body.projector-theme .add-button,
+body.projector-theme .save-button {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
+}
+
+body.projector-theme .add-button:hover,
+body.projector-theme .save-button:hover {
+    background-color: #1e40af;
+}
+
+body.projector-theme .filter-button {
+    background-color: #0f172a;
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
+}
+
+body.projector-theme .filter-button:hover {
+    background-color: #020617;
+}
+
+body.projector-theme .open-button {
+    background-color: #15803d;
+    color: #ffffff;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
+}
+
+body.projector-theme .open-button:hover {
+    background-color: #166534;
+}
+
+body.projector-theme .delete-button {
+    background-color: #b91c1c;
+    color: #ffffff;
+}
+
+body.projector-theme .delete-button:hover {
+    background-color: #991b1b;
+}
+
+body.projector-theme input,
+body.projector-theme select,
+body.projector-theme textarea {
+    background-color: #f8fafc;
+    border: 2px solid #64748b;
+    color: #0f172a;
+}
+
+body.projector-theme input:focus,
+body.projector-theme select:focus,
+body.projector-theme textarea:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
 }

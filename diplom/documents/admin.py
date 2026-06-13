@@ -10,6 +10,11 @@ from .models import (
 )
 
 
+admin.site.site_header = 'Администрирование системы электронных документов'
+admin.site.site_title = 'Система электронных документов'
+admin.site.index_title = 'Панель управления'
+
+
 @admin.register(DocumentType)
 class DocumentTypeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
@@ -32,6 +37,8 @@ class ClientAdmin(admin.ModelAdmin):
 class RequiredDocumentInline(admin.TabularInline):
     model = RequiredDocument
     extra = 0
+    verbose_name = 'Обязательный документ'
+    verbose_name_plural = 'Обязательные документы'
 
 
 @admin.register(ClientCase)
@@ -65,6 +72,7 @@ class DocumentAdmin(admin.ModelAdmin):
         'extracted_inn',
         'extracted_document_number',
     )
+
 
 @admin.register(Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
